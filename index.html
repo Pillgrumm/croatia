@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -15,9 +14,1398 @@
       rel="stylesheet"
     />
     <title>Croatia Days · Sep 2026</title>
+    <style>
+:root {
+  --ink: #10242c;
+  --ink-soft: #3d5560;
+  --foam: #f3f8f9;
+  --paper: #ffffff;
+  --sea: #0b3d4c;
+  --sea-mid: #146277;
+  --lagoon: #7ec8d4;
+  --sun: #e8b86d;
+  --clay: #c46b4a;
+  --line: rgba(16, 36, 44, 0.12);
+  --shadow: 0 18px 50px rgba(11, 61, 76, 0.14);
+  --radius: 18px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(126, 200, 212, 0.28), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(232, 184, 109, 0.18), transparent 55%),
+    linear-gradient(180deg, #e7f1f3 0%, var(--foam) 40%, #eef4f5 100%);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--sea-mid);
+}
+
+button {
+  font: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--sea);
+  color: white;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  backdrop-filter: blur(14px);
+  background: rgba(243, 248, 249, 0.82);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.site-nav__source {
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--sea);
+}
+
+.site-nav__source:hover {
+  color: var(--clay);
+}
+
+.hero {
+  position: relative;
+  min-height: min(92vh, 820px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: white;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 28, 36, 0.18) 0%, rgba(8, 28, 36, 0.42) 42%, rgba(8, 28, 36, 0.82) 100%),
+    linear-gradient(90deg, rgba(11, 61, 76, 0.55), transparent 55%);
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+  max-width: 44rem;
+  animation: rise 0.9s ease both;
+}
+
+.brand-mark {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  font-weight: 600;
+  line-height: 0.98;
+  max-width: 10ch;
+}
+
+.hero__sub {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: clamp(1.02rem, 2.2vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.primary-btn,
+.secondary-btn,
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.primary-btn {
+  background: var(--sun);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  background: #f0c786;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.secondary-btn:hover {
+  border-color: white;
+}
+
+.hero__credit {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.planner {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.planner__intro {
+  max-width: 38rem;
+  margin-bottom: 1.5rem;
+  animation: rise 0.7s ease 0.1s both;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--sea-mid);
+}
+
+.planner__intro h2,
+.overview__head h2,
+.section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.planner__intro h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.planner__intro p,
+.overview__head p,
+.lede {
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.day-strip-wrap {
+  position: sticky;
+  top: 3.2rem;
+  z-index: 30;
+  margin: 0 -0.25rem 1.25rem;
+  padding: 0.6rem 0;
+  background: linear-gradient(180deg, rgba(243, 248, 249, 0.96), rgba(243, 248, 249, 0.88));
+  backdrop-filter: blur(10px);
+}
+
+.day-strip {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.25rem 0.55rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.day-chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: min(190px, 72vw);
+  text-align: left;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 16px;
+  padding: 0.85rem 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.day-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20, 98, 119, 0.35);
+}
+
+.day-chip.is-active {
+  border-color: transparent;
+  background: linear-gradient(160deg, var(--sea) 0%, var(--sea-mid) 100%);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.day-chip__date {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.25rem;
+}
+
+.day-chip__title {
+  display: block;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.day-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 6px);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  box-shadow: var(--shadow);
+  animation: rise 0.45s ease both;
+}
+
+.day-panel__header h2 {
+  margin: 0.15rem 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.day-location {
+  display: inline-flex;
+  margin: 0.75rem 0 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(126, 200, 212, 0.22);
+  color: var(--sea);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.day-panel__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.4rem 0 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.ghost-btn {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--sea);
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+}
+
+.ghost-btn:hover:not(:disabled) {
+  border-color: var(--sea-mid);
+}
+
+.ghost-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.block-stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.plan-block {
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  background: #f7fbfc;
+  border-left: 4px solid var(--lagoon);
+}
+
+.plan-block--booked,
+.plan-block--transit {
+  border-left-color: var(--sun);
+  background: #fff9f0;
+}
+
+.plan-block--arrive,
+.plan-block--depart {
+  border-left-color: var(--clay);
+  background: #fff6f2;
+}
+
+.plan-block__type {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.plan-block h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.plan-block p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.stays,
+.day-links,
+.overview {
+  margin-top: 2rem;
+}
+
+.section-title,
+.overview__head h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.stay-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 760px) {
+  .stay-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.stay-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem 1.15rem;
+  background: linear-gradient(180deg, #ffffff, #f8fcfd);
+}
+
+.stay-card h3 {
+  margin: 0.15rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.stay-card__meta,
+.stay-card__notes {
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.stay-facts {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.stay-facts div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.stay-facts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stay-facts dd {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.text-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.day-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.day-links a {
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.day-links a:hover {
+  border-color: var(--sea-mid);
+  color: var(--sea);
+}
+
+.overview__head {
+  margin-bottom: 0.85rem;
+}
+
+.overview-table {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.overview-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.85rem;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.overview-row:hover {
+  transform: translateY(-1px);
+  border-color: rgba(20, 98, 119, 0.35);
+}
+
+.overview-row.is-active {
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(126, 200, 212, 0.35), rgba(232, 184, 109, 0.22));
+  box-shadow: var(--shadow);
+}
+
+.overview-row__when,
+.overview-row__what {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.overview-row strong {
+  font-weight: 700;
+}
+
+.overview-row span span,
+.overview-row__when span,
+.overview-row__what span {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.site-footer {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.travelers {
+  font-weight: 600;
+  color: var(--sea);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .overview-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .day-panel__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero__media img,
+  .hero__copy,
+  .planner__intro,
+  .day-panel,
+  .day-chip,
+  .overview-row,
+  .primary-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+    </style>
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script>
+const FORA_URL =
+  'https://trips.foratravel.com/i/olivia-hampton-travel-advising/HTSBXfzMEc'
+
+const trip = {
+  brand: 'Croatia Days',
+  title: 'Dalmatian Coast',
+  subtitle:
+    'Sep 9–22, 2026 · Dubrovnik, Split, islands, and Plitvice — one day at a time.',
+  curator: {
+    name: 'Olivia Hampton',
+    email: 'olivia.hampton@fora.travel',
+  },
+  travelers: ['Alanah', 'Nik', 'Morgan', 'Jake'],
+  sourceLabel: 'Open original Fora trip',
+  sourceUrl: FORA_URL,
+  heroImage:
+    'https://images.unsplash.com/photo-1555990793-da11153b2473?auto=format&fit=crop&w=2000&q=80',
+  heroCredit: 'Dubrovnik Old Town',
+}
+
+const stays = {
+  berkeleyAlanah: {
+    id: 'berkeley-alanah',
+    name: 'Berkeley Hotel',
+    place: 'Dubrovnik',
+    guests: 'Alanah & Nik',
+    nights: 'Sep 9–11 · 2 nights',
+    confirmation: '9101352801554',
+    address: 'Ulica Andrije Hebranga 116A, Dubrovnik 20000',
+    room: 'Classic Double with Balcony + Breakfast',
+    checkIn: 'From 2:00 PM',
+    checkOut: 'Before 11:00 AM',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=Berkeley+Hotel+Dubrovnik+Andrije+Hebranga+116A',
+    notes: 'Pay at property (~€496.68). Breakfast buffet included.',
+  },
+  berkeleyMorgan: {
+    id: 'berkeley-morgan',
+    name: 'Berkeley Hotel',
+    place: 'Dubrovnik',
+    guests: 'Morgan & Jake',
+    nights: 'Sep 10–11 · 1 night',
+    confirmation: '9093026875263',
+    address: 'Ulica Andrije Hebranga 116A, Dubrovnik 20000',
+    room: 'Classic Double with Patio + Breakfast',
+    checkIn: 'From 2:00 PM',
+    checkOut: 'Before 11:00 AM',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=Berkeley+Hotel+Dubrovnik+Andrije+Hebranga+116A',
+    notes: 'Pay at property (~€217.46). Breakfast buffet included.',
+  },
+  splitVrbo: {
+    id: 'split-vrbo',
+    name: 'How To Live Better In Split Apartment',
+    place: 'Split',
+    guests: 'All four · 3 bed / 2 bath',
+    nights: 'Sep 11–17 · 6 nights',
+    confirmation: 'HA-2L1K68',
+    address: 'Ćirila i Metoda 2, Split 21000',
+    room: 'Vrbo apartment · itinerary #73463382406824',
+    checkIn: '2:00 PM',
+    checkOut: '10:00 AM',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=%C4%86irila+i+Metoda+2+Split+Croatia',
+    notes: 'Host email covers check-in details. Due at property: $48.',
+  },
+  sorgoCerva: {
+    id: 'sorgo-cerva',
+    name: 'Luxury Apartment Sorgo Cerva',
+    place: 'Dubrovnik',
+    guests: 'All four · 2 bed apartment',
+    nights: 'Sep 17–22 · 5 nights',
+    confirmation: '73463441918040',
+    address: '5 Vara ul., Dubrovnik 20000',
+    room: 'Luxury 2 Bedroom Apartment, City View',
+    checkIn: '3:00 PM (contact host 48h ahead for access code)',
+    notes: 'No front desk — coordinate arrival with the host.',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=5+Vara+ul+Dubrovnik+Croatia',
+  },
+}
+
+const days = [
+  {
+    id: '2026-09-09',
+    date: '2026-09-09',
+    weekday: 'Wednesday',
+    shortLabel: 'Sep 9',
+    title: 'Nik & Alanah arrive',
+    summary: 'Land in Dubrovnik and settle into the Berkeley Hotel.',
+    location: 'Dubrovnik',
+    stayIds: ['berkeley-alanah'],
+    blocks: [
+      {
+        type: 'arrive',
+        title: 'Arrival',
+        body: 'Nik & Alanah arrive. Ease into the Old Town rhythm — walls, sea air, and an early night after travel.',
+      },
+      {
+        type: 'note',
+        title: 'Tonight',
+        body: 'Stay at Berkeley Hotel. Keep it light: stroll the Stradun, find a simple dinner near the harbor.',
+      },
+    ],
+    links: [
+      { label: 'Fora booking details', href: FORA_URL },
+      {
+        label: 'Berkeley Hotel on Maps',
+        href: stays.berkeleyAlanah.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-10',
+    date: '2026-09-10',
+    weekday: 'Thursday',
+    shortLabel: 'Sep 10',
+    title: 'Morgan & Jake arrive',
+    summary: 'The rest of the group lands — still based in Dubrovnik.',
+    location: 'Dubrovnik',
+    stayIds: ['berkeley-alanah', 'berkeley-morgan'],
+    blocks: [
+      {
+        type: 'arrive',
+        title: 'Arrival',
+        body: 'Morgan & Jake arrive and check into Berkeley Hotel (same property as Alanah & Nik).',
+      },
+      {
+        type: 'idea',
+        title: 'Easy Dubrovnik day',
+        body: 'Walk the walls if energy allows, or keep it low-key around the Old Port and Buža-style cliff bars.',
+      },
+    ],
+    links: [
+      { label: 'Fora booking details', href: FORA_URL },
+      {
+        label: 'Berkeley Hotel on Maps',
+        href: stays.berkeleyMorgan.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-11',
+    date: '2026-09-11',
+    weekday: 'Friday',
+    shortLabel: 'Sep 11',
+    title: 'Dubrovnik → Split via Ston',
+    summary: 'Private transfer up the coast with a 2-hour oyster & wine stop in Ston.',
+    location: 'Travel day · Split',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'transit',
+        title: 'Private transfer',
+        body: 'About 4–4.5 hours of coastal road driving, plus a planned 2-hour stop in Ston (roughly halfway) for wine and oysters.',
+      },
+      {
+        type: 'booked',
+        title: 'Transfer pricing (from advisor)',
+        body: 'Comfortable car €405 · Van €465. Passport needed — the coastal road briefly crosses into Bosnia (Neum).',
+      },
+      {
+        type: 'stay',
+        title: 'Check into Split',
+        body: 'Evening arrival at the Vrbo apartment (Ćirila i Metoda 2). Check-in from 2:00 PM; host email has access details.',
+      },
+    ],
+    links: [
+      { label: 'Fora transport notes', href: FORA_URL },
+      { label: 'Split apartment on Maps', href: stays.splitVrbo.mapsUrl },
+    ],
+  },
+  {
+    id: '2026-09-12',
+    date: '2026-09-12',
+    weekday: 'Saturday',
+    shortLabel: 'Sep 12',
+    title: 'Split day',
+    summary: 'Open day in Split — Diocletian’s Palace, Riva, and swimming nearby.',
+    location: 'Split',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'City day',
+        body: 'Wander Diocletian’s Palace, the Riva waterfront, and Marjan Hill if you want a view walk. No fixed booking — treat this as a settle-in day.',
+      },
+      {
+        type: 'idea',
+        title: 'Advisor picks',
+        body: 'Olivia listed Split walking tours, food tours, Krka, and boat options in the Guided Activities section of the Fora trip.',
+      },
+    ],
+    links: [
+      { label: 'Fora guided activities', href: FORA_URL },
+      { label: 'Split apartment on Maps', href: stays.splitVrbo.mapsUrl },
+    ],
+  },
+  {
+    id: '2026-09-13',
+    date: '2026-09-13',
+    weekday: 'Sunday',
+    shortLabel: 'Sep 13',
+    title: 'Island day 1',
+    summary: 'Recommended: Brač (Supetar) — frequent ferries, flexible half- or full-day.',
+    location: 'Split · islands',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'Brač (Supetar)',
+        body: 'Most frequent and flexible island hop from Split. Easy half-day; you can push on toward Hvar if you want a second stop.',
+      },
+      {
+        type: 'note',
+        title: 'Ferry booking',
+        body: 'Jadrolinija runs year-round car ferries to Supetar; catamarans also serve Bol and Milna. Typical crossing ~50 min–1h15.',
+      },
+    ],
+    links: [
+      {
+        label: 'Book Jadrolinija',
+        href: 'https://www.jadrolinija.hr/en/search-buy-ticket',
+      },
+      { label: 'Fora island notes', href: FORA_URL },
+    ],
+  },
+  {
+    id: '2026-09-14',
+    date: '2026-09-14',
+    weekday: 'Monday',
+    shortLabel: 'Sep 14',
+    title: 'Plitvice Lakes',
+    summary: 'Private day trip from Split with ~4 hours in the park.',
+    location: 'Day trip · Plitvice',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'booked',
+        title: 'Private driver day trip',
+        body: 'Plitvice is ~2.5 hours each way from Split. Plan a full day: ~5 hours driving round-trip plus ~4 hours in the park. Driver waits so you can wander at your own pace.',
+      },
+      {
+        type: 'booked',
+        title: 'Pricing (from advisor)',
+        body: 'Comfort car €420 · Van €500 (includes waiting time).',
+      },
+    ],
+    links: [
+      { label: 'Fora Plitvice notes', href: FORA_URL },
+      {
+        label: 'Plitvice Lakes info',
+        href: 'https://np-plitvicka-jezera.hr/en/',
+      },
+    ],
+  },
+  {
+    id: '2026-09-15',
+    date: '2026-09-15',
+    weekday: 'Tuesday',
+    shortLabel: 'Sep 15',
+    title: 'Split day',
+    summary: 'Second open day in Split — beaches, food, or a leftover tour.',
+    location: 'Split',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'Flexible Split day',
+        body: 'Use this for whatever Island Day / city time didn’t cover — Bačvice or Žnjan for a swim, market lunch, or a food tour from Olivia’s Split list.',
+      },
+    ],
+    links: [
+      { label: 'Fora guided activities', href: FORA_URL },
+      { label: 'Split apartment on Maps', href: stays.splitVrbo.mapsUrl },
+    ],
+  },
+  {
+    id: '2026-09-16',
+    date: '2026-09-16',
+    weekday: 'Wednesday',
+    shortLabel: 'Sep 16',
+    title: 'Island day 2',
+    summary: 'Pick Korčula or Vis as a full-day excursion — not both.',
+    location: 'Split · islands',
+    stayIds: ['split-vrbo'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'Korčula or Vis',
+        body: 'Both eat most of the day round-trip. Korčula is often via Hvar (~2h20–3h30). Vis is fewer sailings (~1h10–2h30) and works best as a dedicated full day.',
+      },
+      {
+        type: 'note',
+        title: 'Mljet note',
+        body: 'Mljet has one daily sailing each way and a ~3h crossing to Pomena — only choose it if you’re prioritizing Mljet over Korčula/Vis.',
+      },
+    ],
+    links: [
+      {
+        label: 'Krilo Split → Vis',
+        href: 'https://www.krilo.hr/en/routes/split-vis/',
+      },
+      {
+        label: 'Krilo Split → Korčula',
+        href: 'https://www.krilo.hr/en/routes/split-korcula/',
+      },
+      {
+        label: 'Jadrolinija tickets',
+        href: 'https://www.jadrolinija.hr/en/search-buy-ticket',
+      },
+    ],
+  },
+  {
+    id: '2026-09-17',
+    date: '2026-09-17',
+    weekday: 'Thursday',
+    shortLabel: 'Sep 17',
+    title: 'Split → Dubrovnik',
+    summary: 'Morning Krilo catamaran, then check into Sorgo Cerva apartment.',
+    location: 'Travel day · Dubrovnik',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'transit',
+        title: 'Krilo fast catamaran',
+        body: 'Departs Split 8:00 AM → arrives Dubrovnik 12:30 PM (4.5 hours, foot-passenger only). Book at krilo.hr. Pack light enough to carry bags on board.',
+      },
+      {
+        type: 'note',
+        title: 'Backup sailings',
+        body: 'TP Line ~9:00 AM / 3:10 PM. Jadrolinija slower scenic coastal catamaran via Brač, Hvar, Korčula, Mljet.',
+      },
+      {
+        type: 'stay',
+        title: 'Check into Dubrovnik apartment',
+        body: 'Luxury Apartment Sorgo Cerva from 3:00 PM. Contact host at least 48 hours ahead for check-in instructions and access code.',
+      },
+    ],
+    links: [
+      { label: 'Book Krilo', href: 'https://www.krilo.hr/en/' },
+      { label: 'TP Line', href: 'https://www.tpline.hr/' },
+      {
+        label: 'Sorgo Cerva on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-18',
+    date: '2026-09-18',
+    weekday: 'Friday',
+    shortLabel: 'Sep 18',
+    title: 'Dubrovnik',
+    summary: 'Full day back in Dubrovnik — walls, boats, or a food walk.',
+    location: 'Dubrovnik',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'City day',
+        body: 'Olivia’s Dubrovnik list covers walking tours (including Game of Thrones), Elaphiti boat trips, food tours, and extras — pick what fits the group’s energy.',
+      },
+    ],
+    links: [
+      { label: 'Fora Dubrovnik activities', href: FORA_URL },
+      {
+        label: 'Apartment on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-19',
+    date: '2026-09-19',
+    weekday: 'Saturday',
+    shortLabel: 'Sep 19',
+    title: 'Dubrovnik or Elaphiti',
+    summary: 'Stay in town or take a boat out to the Elaphiti Islands.',
+    location: 'Dubrovnik',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'Choice day',
+        body: 'Either a second deep dive in the Old Town / Lokrum, or an Elaphiti Islands boat day from the guided activities list.',
+      },
+    ],
+    links: [
+      { label: 'Fora Dubrovnik activities', href: FORA_URL },
+      {
+        label: 'Apartment on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-20',
+    date: '2026-09-20',
+    weekday: 'Sunday',
+    shortLabel: 'Sep 20',
+    title: 'Morgan & Jake depart',
+    summary: 'Send-off morning; Alanah & Nik stay on in Dubrovnik.',
+    location: 'Dubrovnik',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'depart',
+        title: 'Departures',
+        body: 'Morgan & Jake head out. Remaining two keep the apartment through the 22nd.',
+      },
+      {
+        type: 'idea',
+        title: 'Quieter Dubrovnik',
+        body: 'Good day for a slow café morning and one favorite Old Town loop without rushing.',
+      },
+    ],
+    links: [
+      { label: 'Fora trip overview', href: FORA_URL },
+      {
+        label: 'Apartment on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-21',
+    date: '2026-09-21',
+    weekday: 'Monday',
+    shortLabel: 'Sep 21',
+    title: 'Dubrovnik',
+    summary: 'Last full day — whatever you still want from the walls or the sea.',
+    location: 'Dubrovnik',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'plan',
+        title: 'Last full day',
+        body: 'Use it for anything you skipped: wall walk at opening, cable car to Srđ, or a long lunch with a view.',
+      },
+    ],
+    links: [
+      { label: 'Fora Dubrovnik activities', href: FORA_URL },
+      {
+        label: 'Apartment on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+  {
+    id: '2026-09-22',
+    date: '2026-09-22',
+    weekday: 'Tuesday',
+    shortLabel: 'Sep 22',
+    title: 'Nik & Alanah depart',
+    summary: 'Checkout and fly home — trip complete.',
+    location: 'Dubrovnik · depart',
+    stayIds: ['sorgo-cerva'],
+    blocks: [
+      {
+        type: 'depart',
+        title: 'Checkout & departure',
+        body: 'Apartment checkout by 10:00 AM. Nik & Alanah depart. Confirm airport transfer timing the night before.',
+      },
+    ],
+    links: [
+      { label: 'Fora trip overview', href: FORA_URL },
+      {
+        label: 'Apartment on Maps',
+        href: stays.sorgoCerva.mapsUrl,
+      },
+    ],
+  },
+]
+
+const stayById = Object.fromEntries(
+  Object.values(stays).map((stay) => [stay.id, stay]),
+)
+
+const overview = days.map((day) => ({
+  id: day.id,
+  weekday: day.weekday,
+  shortLabel: day.shortLabel,
+  title: day.title,
+  location: day.location,
+}))
+
+const params = new URLSearchParams(window.location.search)
+const initialId = params.get('day')
+const initialIndex = Math.max(
+  0,
+  days.findIndex((day) => day.id === initialId),
+)
+
+let selectedIndex = initialIndex === -1 ? 0 : initialIndex
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+}
+
+function typeLabel(type) {
+  const labels = {
+    arrive: 'Arrival',
+    depart: 'Departure',
+    transit: 'Getting there',
+    booked: 'Booked / priced',
+    plan: 'The plan',
+    stay: 'Stay',
+    idea: 'Idea',
+    note: 'Note',
+  }
+  return labels[type] || 'Note'
+}
+
+function renderStayCard(stay) {
+  return `
+    <article class="stay-card">
+      <div class="stay-card__top">
+        <p class="eyebrow">${escapeHtml(stay.place)} stay</p>
+        <h3>${escapeHtml(stay.name)}</h3>
+        <p class="stay-card__meta">${escapeHtml(stay.guests)} · ${escapeHtml(stay.nights)}</p>
+      </div>
+      <dl class="stay-facts">
+        <div><dt>Confirmation</dt><dd>${escapeHtml(stay.confirmation)}</dd></div>
+        <div><dt>Address</dt><dd>${escapeHtml(stay.address)}</dd></div>
+        <div><dt>Room</dt><dd>${escapeHtml(stay.room)}</dd></div>
+        <div><dt>Check-in / out</dt><dd>${escapeHtml(stay.checkIn)} · ${escapeHtml(stay.checkOut)}</dd></div>
+      </dl>
+      <p class="stay-card__notes">${escapeHtml(stay.notes)}</p>
+      <a class="text-link" href="${escapeHtml(stay.mapsUrl)}" target="_blank" rel="noopener">Open in Maps</a>
+    </article>
+  `
+}
+
+function renderDay(day, index) {
+  const dayStays = day.stayIds.map((id) => stayById[id]).filter(Boolean)
+  const prev = days[index - 1]
+  const next = days[index + 1]
+
+  return `
+    <article class="day-panel" id="day-panel" aria-live="polite">
+      <header class="day-panel__header">
+        <p class="eyebrow">${escapeHtml(day.weekday)} · ${escapeHtml(day.shortLabel)}</p>
+        <h2>${escapeHtml(day.title)}</h2>
+        <p class="lede">${escapeHtml(day.summary)}</p>
+        <p class="day-location">${escapeHtml(day.location)}</p>
+      </header>
+
+      <div class="day-panel__nav">
+        <button type="button" class="ghost-btn" data-goto="${prev ? index - 1 : ''}" ${prev ? '' : 'disabled'}>
+          ← ${prev ? escapeHtml(prev.shortLabel) : 'Start'}
+        </button>
+        <span>${index + 1} / ${days.length}</span>
+        <button type="button" class="ghost-btn" data-goto="${next ? index + 1 : ''}" ${next ? '' : 'disabled'}>
+          ${next ? escapeHtml(next.shortLabel) : 'End'} →
+        </button>
+      </div>
+
+      <section class="block-stack" aria-label="Day plan">
+        ${day.blocks
+          .map(
+            (block) => `
+          <div class="plan-block plan-block--${escapeHtml(block.type)}">
+            <p class="plan-block__type">${escapeHtml(typeLabel(block.type))}</p>
+            <h3>${escapeHtml(block.title)}</h3>
+            <p>${escapeHtml(block.body)}</p>
+          </div>
+        `,
+          )
+          .join('')}
+      </section>
+
+      <section class="stays" aria-label="Where you sleep">
+        <h3 class="section-title">Where you sleep</h3>
+        <div class="stay-grid">
+          ${dayStays.map(renderStayCard).join('')}
+        </div>
+      </section>
+
+      <section class="day-links" aria-label="Useful links">
+        <h3 class="section-title">Links</h3>
+        <ul>
+          ${day.links
+            .map(
+              (link) => `
+            <li>
+              <a href="${escapeHtml(link.href)}" target="_blank" rel="noopener">${escapeHtml(link.label)}</a>
+            </li>
+          `,
+            )
+            .join('')}
+        </ul>
+      </section>
+    </article>
+  `
+}
+
+function renderApp() {
+  const day = days[selectedIndex]
+
+  document.querySelector('#app').innerHTML = `
+    <a class="skip-link" href="#day-panel">Skip to selected day</a>
+
+    <header class="site-nav">
+      <div class="site-nav__brand">${escapeHtml(trip.brand)}</div>
+      <a class="site-nav__source" href="${escapeHtml(trip.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(trip.sourceLabel)}</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img src="${escapeHtml(trip.heroImage)}" alt="" />
+        <div class="hero__veil"></div>
+      </div>
+      <div class="hero__copy">
+        <p class="brand-mark">${escapeHtml(trip.brand)}</p>
+        <h1>${escapeHtml(trip.title)}</h1>
+        <p class="hero__sub">${escapeHtml(trip.subtitle)}</p>
+        <div class="hero__actions">
+          <a class="primary-btn" href="#planner">Open day planner</a>
+          <a class="secondary-btn" href="${escapeHtml(trip.sourceUrl)}" target="_blank" rel="noopener">Fora source</a>
+        </div>
+        <p class="hero__credit">Photo: ${escapeHtml(trip.heroCredit)} · Curated by ${escapeHtml(trip.curator.name)}</p>
+      </div>
+    </section>
+
+    <main id="planner" class="planner">
+      <div class="planner__intro">
+        <p class="eyebrow">Itinerary</p>
+        <h2>Pick a day. See the plan.</h2>
+        <p>Overview for the arc — day view for the details. No more hunting through booking dumps.</p>
+      </div>
+
+      <div class="day-strip-wrap">
+        <div class="day-strip" role="tablist" aria-label="Trip days">
+          ${days
+            .map(
+              (item, index) => `
+            <button
+              type="button"
+              class="day-chip ${index === selectedIndex ? 'is-active' : ''}"
+              role="tab"
+              aria-selected="${index === selectedIndex}"
+              data-select="${index}"
+              id="day-chip-${index}"
+            >
+              <span class="day-chip__date">${escapeHtml(item.shortLabel)}</span>
+              <span class="day-chip__title">${escapeHtml(item.title)}</span>
+            </button>
+          `,
+            )
+            .join('')}
+        </div>
+      </div>
+
+      ${renderDay(day, selectedIndex)}
+
+      <section class="overview" aria-label="Itinerary overview">
+        <div class="overview__head">
+          <h2>Overview</h2>
+          <p>Tap any row to jump straight to that day.</p>
+        </div>
+        <div class="overview-table" role="list">
+          ${overview
+            .map(
+              (row, index) => `
+            <button type="button" class="overview-row ${index === selectedIndex ? 'is-active' : ''}" data-select="${index}" role="listitem">
+              <span class="overview-row__when">
+                <strong>${escapeHtml(row.weekday)}</strong>
+                <span>${escapeHtml(row.shortLabel)}</span>
+              </span>
+              <span class="overview-row__what">
+                <strong>${escapeHtml(row.title)}</strong>
+                <span>${escapeHtml(row.location)}</span>
+              </span>
+            </button>
+          `,
+            )
+            .join('')}
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Day-first viewer for the Fora trip curated by
+        <a href="mailto:${escapeHtml(trip.curator.email)}">${escapeHtml(trip.curator.name)}</a>.
+        Booking confirmations stay on Fora.
+      </p>
+      <p class="travelers">${trip.travelers.map(escapeHtml).join(' · ')}</p>
+    </footer>
+  `
+
+  bindEvents()
+  syncUrl()
+  scrollActiveChipIntoView()
+}
+
+function syncUrl() {
+  const day = days[selectedIndex]
+  const url = new URL(window.location.href)
+  url.searchParams.set('day', day.id)
+  window.history.replaceState({}, '', url)
+}
+
+function scrollActiveChipIntoView() {
+  const active = document.querySelector('.day-chip.is-active')
+  if (active) {
+    active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+  }
+}
+
+function selectDay(index, { scrollToPanel = true } = {}) {
+  if (index < 0 || index >= days.length || index === selectedIndex) {
+    if (index === selectedIndex && scrollToPanel) {
+      document.getElementById('day-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    return
+  }
+  selectedIndex = index
+  renderApp()
+  if (scrollToPanel) {
+    requestAnimationFrame(() => {
+      document.getElementById('day-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
+}
+
+function bindEvents() {
+  document.querySelectorAll('[data-select]').forEach((el) => {
+    el.addEventListener('click', () => {
+      selectDay(Number(el.getAttribute('data-select')))
+    })
+  })
+
+  document.querySelectorAll('[data-goto]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = el.getAttribute('data-goto')
+      if (value === '') return
+      selectDay(Number(value))
+    })
+  })
+}
+
+window.addEventListener('keydown', (event) => {
+  if (event.target.matches('input, textarea, select, [contenteditable="true"]')) return
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault()
+    selectDay(selectedIndex - 1)
+  }
+  if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    selectDay(selectedIndex + 1)
+  }
+})
+
+renderApp()
+    </script>
   </body>
 </html>
